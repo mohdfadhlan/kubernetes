@@ -1,0 +1,17 @@
+kubectl create -f https://k8s.io/examples/admin/namespace-dev.yaml
+kubectl get namespaces --show-labels
+kubectl config current-context
+
+kubernetes-admin@kubernetes
+
+kubectl config set-context dev --namespace=development \
+  --cluster=kubernetes-admin@kubernetess \
+  --user=kubernetes-admin@kubernetes
+
+kubectl config set-context prod --namespace=production \
+  --cluster=lithe-cocoa-92103_kubernetes \
+  --user=lithe-cocoa-92103_kubernetes
+
+kubectl config use-context dev
+
+kubectl run dev-app --image=kodekloud/nginx:custom
